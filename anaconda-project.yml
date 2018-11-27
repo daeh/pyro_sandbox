@@ -1,3 +1,9 @@
+# To use as a jupyter kernel, activate the enviornment (`source activate envs/default` from the same folder as this file), then add the kernelspec:
+# source activate myenv
+# python -m ipykernel install --user --name myenv --display-name "Python (myenv)"
+# where myenv is replace with the name of the anaconda-project
+# verify that the path to the executable is correct by running `jupyter kernelspec list --json`
+
 # This is an Anaconda project file.
 #
 # Here you can describe your project and how to run it.
@@ -32,13 +38,10 @@ description:
 # In the commands section, list your runnable scripts, notebooks, and other code.
 # Use `anaconda-project add-command` to add commands.
 #
-# commands: {}
 commands:
   default:
-    unix: "pip install --upgrade pip"
-
-
-
+    unix: pip install --upgrade pip
+    
 #
 # In the variables section, list any environment variables your code depends on.
 # Use `anaconda-project add-variable` to add variables.
@@ -72,30 +75,29 @@ downloads: {}
 #
 packages:
 - anaconda
-- python=3.5
-- numpy
-- pandas
+- python >= 3.7
+- pip >= 18.1
 - pytorch
 - torchvision
+- numpy
+- pandas
+- matplotlib
+- seaborn
 - networkx
 - graphviz
 - cython
 - contextlib2
 - python-graphviz
-- matplotlib
+- ipython
 - ipykernel
 - pip:
   - pyro-ppl
+
+
+
 #
 # In the channels section, list any Conda channel URLs to be searched
 # for packages.
-#
-# For example,
-#
-# channels:
-#    - mychannel
-#
-
 channels:
 - pytorch
 - conda-forge
